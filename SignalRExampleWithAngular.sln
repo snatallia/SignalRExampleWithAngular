@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRServer", "SignalRServer\SignalRServer.csproj", "{6A168D19-56C9-4844-A3CD-ECB0D8FA79DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalRClient", "SignalRClient", "{44CC8E44-EA35-4334-9FE3-545910CFC1A4}"
+	ProjectSection(SolutionItems) = preProject
+		SignalRClient\.editorconfig = SignalRClient\.editorconfig
+		SignalRClient\.gitignore = SignalRClient\.gitignore
+		SignalRClient\angular.json = SignalRClient\angular.json
+		SignalRClient\package-lock.json = SignalRClient\package-lock.json
+		SignalRClient\package.json = SignalRClient\package.json
+		SignalRClient\README.md = SignalRClient\README.md
+		SignalRClient\tsconfig.app.json = SignalRClient\tsconfig.app.json
+		SignalRClient\tsconfig.json = SignalRClient\tsconfig.json
+		SignalRClient\tsconfig.spec.json = SignalRClient\tsconfig.spec.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A168D19-56C9-4844-A3CD-ECB0D8FA79DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A168D19-56C9-4844-A3CD-ECB0D8FA79DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A168D19-56C9-4844-A3CD-ECB0D8FA79DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A168D19-56C9-4844-A3CD-ECB0D8FA79DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFD124AC-F026-4857-91EF-D34C1F987AB0}
+	EndGlobalSection
+EndGlobal

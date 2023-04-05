@@ -1,0 +1,14 @@
+﻿{
+ 
+  "profiles": {
+    "SignalRServer": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "https://localhost:2702;http://localhost:5121",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+   
+}
