@@ -1,4 +1,4 @@
 export interface  Chart {
   data: [],
-  label: string
+  info: string
 }

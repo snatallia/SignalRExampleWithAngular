@@ -9,7 +9,7 @@
 
 <ul>
   <li *ngFor='let data of signalRService.data'>
-    <strong>Description: </strong> {{data.label}} - <strong>Value: </strong> {{data.data}}
+    <strong>Description: </strong> {{data.info}} - <strong>Value: </strong> {{data.data}}
   </li>
 </ul>
 <router-outlet></router-outlet>

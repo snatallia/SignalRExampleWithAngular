@@ -2,29 +2,29 @@
 {
     public class ChartTimer
     {
-        private Timer? _timer;
-        private AutoResetEvent? _autoResetEvent;
-        private Action? _action;
-        public DateTime TimerStarted { get; set; }
+        private Timer? timer;        
+        private Action? action;
+        private DateTime TimerStarted { get; set; }
         public bool IsTimerStarted { get; set; }
 
         public void PrepareTimer(Action action)
         {
-            _action = action;
-            _autoResetEvent = new AutoResetEvent(false);
-            _timer = new Timer(Execute, _autoResetEvent, 1000, 2000);
+            this.action = action;            
+            this.timer = new Timer(Execute, false, 1000, 3000);
             TimerStarted = DateTime.Now;
             IsTimerStarted = true;
         }
 
-        public void Execute(object? stateInfo)
+        private void Execute(object? stateInfo)
         {
-            _action();
+            if(action != null)
+                action();
 
-            if ((DateTime.Now - TimerStarted).TotalSeconds > 60)
+            if ((DateTime.Now - TimerStarted).TotalSeconds > 120)
             {
                 IsTimerStarted = false;
-                _timer.Dispose();
+                if(timer != null)
+                    timer.Dispose();
             }
         }
     }

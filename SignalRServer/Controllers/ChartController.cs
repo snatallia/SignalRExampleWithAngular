@@ -11,20 +11,19 @@ namespace SignalRServer.Controllers
     [ApiController]
     public class ChartController : ControllerBase
     {
-        private readonly IHubContext<ChartHub> _hubContext;
-        private readonly ChartTimer _timer;
+        private readonly IHubContext<ChartHub> hubContext;
+        private readonly ChartTimer chartTimer;
 
-        public ChartController(IHubContext<ChartHub> hubContext, ChartTimer timer)
+        public ChartController(IHubContext<ChartHub> hubContext, ChartTimer chartTimer)
         {
-            _hubContext = hubContext;
-            _timer = timer;
+            this.hubContext = hubContext;
+            this.chartTimer = chartTimer;
         }
 
         public IActionResult Get()
         {
-            //_hubContext.Clients.All.SendAsync("getchartdata", ChartData.GetData());
-            if (!_timer.IsTimerStarted)
-                _timer.PrepareTimer(() => _hubContext.Clients.All.SendAsync("GetChartData", ChartData.GetData()));
+            if (!chartTimer.IsTimerStarted)
+                chartTimer.PrepareTimer(() => hubContext.Clients.All.SendAsync("GetChartData", ChartData.GetData()));
             return Ok( new { Message = "Request completed." });
         }
     }
