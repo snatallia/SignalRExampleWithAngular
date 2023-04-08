@@ -23,7 +23,7 @@ namespace SignalRServer.Controllers
         public IActionResult Get()
         {
             if (!chartTimer.IsTimerStarted)
-                chartTimer.PrepareTimer(() => hubContext.Clients.All.SendAsync("GetChartData", ChartData.GetData()));
+                chartTimer.PrepareTimer(() => hubContext.Clients.All.SendAsync("GetChartData", ChartData.GetData(5)));
             return Ok( new { Message = "Request completed." });
         }
     }

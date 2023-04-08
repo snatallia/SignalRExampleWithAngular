@@ -2,14 +2,15 @@
 {
     public class ChartTimer
     {
-        private Timer? timer;        
+        private Timer? timer;
         private Action? action;
-        private DateTime TimerStarted { get; set; }
+        private int actionPeriod = 360;
+        public DateTime TimerStarted { get; set; }
         public bool IsTimerStarted { get; set; }
 
         public void PrepareTimer(Action action)
         {
-            this.action = action;            
+            this.action = action;
             this.timer = new Timer(Execute, false, 1000, 3000);
             TimerStarted = DateTime.Now;
             IsTimerStarted = true;
@@ -17,13 +18,18 @@
 
         private void Execute(object? stateInfo)
         {
-            if(action != null)
+            if (action != null)
                 action();
 
-            if ((DateTime.Now - TimerStarted).TotalSeconds > 120)
+            CheckTimerStatus(DateTime.Now);
+        }
+
+        public void CheckTimerStatus(DateTime dateTime)
+        {
+            if ((dateTime - TimerStarted).TotalSeconds > actionPeriod)
             {
                 IsTimerStarted = false;
-                if(timer != null)
+                if (timer != null)
                     timer.Dispose();
             }
         }

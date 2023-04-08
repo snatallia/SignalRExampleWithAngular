@@ -1,20 +1,20 @@
 ﻿using SignalRServer.Models;
+using System.Runtime.CompilerServices;
 
 namespace SignalRServer.Features
 {
     public class ChartData
     {
-        public static List<Chart> GetData()
-        { 
+        public static IEnumerable<Chart> GetData(int count)
+        {
+            if (count <= 0)
+                throw new ArgumentOutOfRangeException("Count must be higher 0");
+
             var random = new Random();
-            return new List<Chart>
+            for (int i = 0; i < count; i++)
             {
-                new Chart{ Data = new List<int> { random.Next(1,100) }, Info = "Data info 1" },
-                new Chart{ Data = new List<int> { random.Next(1,100) }, Info = "Data info 2" },
-                new Chart{ Data = new List<int> { random.Next(1,100) }, Info = "Data info 3" },
-                new Chart{ Data = new List<int> { random.Next(1,100) }, Info = "Data info 4" },
-                new Chart{ Data = new List<int> { random.Next(1,100) }, Info = "Data info 5" },
-            };
+                yield return new Chart { Data = new List<int> { random.Next(1, 100) }, Info = $"Data info {i}" };
+            }           
         }
     }
 }
